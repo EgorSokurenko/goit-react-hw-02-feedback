@@ -1,0 +1,6 @@
+.listButton {
+  display: flex;
+}
+.listButton li {
+  margin: 10px;
+}
