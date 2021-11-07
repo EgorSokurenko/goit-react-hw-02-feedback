@@ -1,8 +1,8 @@
 import React from "react";
 import { Component } from "react";
 import Section from "./compoments/Section/";
-import Statistics from "./compoments/FeedBack/Statistics/";
-import FeedBackOptions from "./compoments/FeedBack/FeedBackOptions/";
+import Statistics from "./compoments/Statistics";
+import FeedBackOptions from "./compoments/FeedBackOptions";
 import Notification from "./compoments/Notification/";
 class App extends Component {
   state = {
@@ -10,20 +10,8 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  addGood = () => {
-    this.setState((pervState) => ({
-      good: pervState.good + 1,
-    }));
-  };
-  addBad = () => {
-    this.setState((pervState) => ({
-      bad: pervState.bad + 1,
-    }));
-  };
-  addNeutral = () => {
-    this.setState((pervState) => ({
-      neutral: pervState.neutral + 1,
-    }));
+  onLeaveFeedBack = (feedback) => {
+    this.setState({ [feedback]: this.state[feedback] + 1 });
   };
   countTotalFeedback = () => {
     const { good, bad, neutral } = this.state;
@@ -38,9 +26,8 @@ class App extends Component {
     return (
       <Section title="Please leave feedback">
         <FeedBackOptions
-          OnAddBad={this.addBad}
-          OnAddGood={this.addGood}
-          OnAddNeutral={this.addNeutral}
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.onLeaveFeedBack}
         />
         {total === 0 ? (
           <Notification message="No feedback given" />

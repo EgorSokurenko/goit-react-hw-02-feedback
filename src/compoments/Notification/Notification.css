@@ -1,0 +1,7 @@
+.message {
+  display: inline-flex;
+  color: aliceblue;
+  padding: 10 20;
+  text-transform: uppercase;
+  background-color: rgba(255, 0, 0, 0.521);
+}

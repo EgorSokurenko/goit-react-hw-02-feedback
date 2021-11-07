@@ -1,0 +1,18 @@
+.listButton {
+  display: flex;
+}
+.listButton li {
+  margin: 10px;
+}
+.button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 10px;
+  border: none;
+  background-color: rgb(130, 189, 236);
+  box-shadow: 1px 2px 3px rgba(95, 95, 95, 0.411);
+}
+.button:active {
+  border: 1px solid black;
+  box-shadow: 2px 3px 4px rgba(95, 95, 95, 0.411);
+}
